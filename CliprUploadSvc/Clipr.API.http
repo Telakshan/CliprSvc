@@ -1,0 +1,6 @@
+@CliprUploadSvc_HostAddress = http://localhost:5027
+
+GET {{CliprUploadSvc_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
