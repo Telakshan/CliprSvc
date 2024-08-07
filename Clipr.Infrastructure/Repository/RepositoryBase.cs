@@ -1,5 +1,4 @@
-﻿using Clipr.Application.Exceptions;
-using Clipr.Domain.Common;
+﻿using Clipr.Domain.Common;
 using Clipr.Infrastructure.Contracts.Persistence;
 using Clipr.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +30,7 @@ public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
     {
         var entity = await _dbContext.Set<T>().FindAsync(id);
 
-        return entity ?? throw new NotFoundException(nameof(GetByIdAsync), id);
+        return entity ?? throw new Exception("No video found!");
     }
 
     public async Task<IReadOnlyList<T>> ListAllAsync()

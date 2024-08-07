@@ -1,14 +1,10 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Clipr.Application.Features.Commands.UploadVideo;
 
-public class UploadVideoCommand: IRequest<int>
+public class UploadVideoCommand: IRequest<Unit>
 {
+    public Stream VideoStream { get; set; } = null!;
     public string VideoName { get; set; } = null!;
     public string VideoDescription { get; set; } = null!;
     public string VideoType { get; set; } = string.Empty;

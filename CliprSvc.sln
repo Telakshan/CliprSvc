@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipr.Application", "Clipr.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipr.Infrastructure", "Clipr.Infrastructure\Clipr.Infrastructure.csproj", "{A76C038A-02B3-4415-9281-B7FE0CE42A6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clipr.Domain", "Clipr.Domain\Clipr.Domain.csproj", "{A1F3527B-E72C-40D2-B0CD-F21317BCEE4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A76C038A-02B3-4415-9281-B7FE0CE42A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A76C038A-02B3-4415-9281-B7FE0CE42A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A76C038A-02B3-4415-9281-B7FE0CE42A6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F3527B-E72C-40D2-B0CD-F21317BCEE4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F3527B-E72C-40D2-B0CD-F21317BCEE4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F3527B-E72C-40D2-B0CD-F21317BCEE4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F3527B-E72C-40D2-B0CD-F21317BCEE4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
