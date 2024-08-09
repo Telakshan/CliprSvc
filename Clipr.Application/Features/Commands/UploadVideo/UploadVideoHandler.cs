@@ -1,5 +1,4 @@
-﻿using Clipr.Domain.Entities;
-using Clipr.Infrastructure.Contracts.Infrastructure;
+﻿using Clipr.Infrastructure.Contracts.Infrastructure;
 using Clipr.Infrastructure.Contracts.Persistence;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -16,7 +15,8 @@ public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, Unit>
     string _storagePath = string.Empty;
     string appDirectory = string.Empty;
 
-    public UploadVideoHandler( , IVideoRepository videoRepository, ILogger<UploadVideoHandler> logger, IVideoUploadService videoUploadService)
+    public UploadVideoHandler(IVideoRepository videoRepository, 
+        IVideoUploadService videoUploadService, ILogger<UploadVideoHandler> logger)
     {
         _videoRepository = videoRepository;
         _videoUploadService = videoUploadService;   
@@ -36,7 +36,7 @@ public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, Unit>
 
         using (var stream = new FileStream(videoPath, FileMode.Create))
         {
-            await request.VideoStream.CopyToAsync(stream);
+            await request.VideoStream.CopyToAsync(stream, cancellationToken);
         }
 
         return Unit.Value;

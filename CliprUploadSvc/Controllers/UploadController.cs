@@ -23,23 +23,28 @@ public class UploadController: ControllerBase
     {
         var video = HttpContext.Request.Form.Files.GetFile("Data");
         
-        var theFile = HttpContext.Request.Form.Files.GetFile("Data");
+        var file = HttpContext.Request.Form.Files.GetFile("Data");
+
+        if (file == null)
+        {
+            throw new ArgumentNullException("File cannot be null!");
+        }
 
         // Building the path to the uploads directory
         // Get the mime type
-        var mimeType = HttpContext.Request.Form.Files.GetFile("Data").ContentType;
+        var mimeType = HttpContext.Request.Form.Files.GetFile("Data")!.ContentType;
 
         // Get File Extension
-        string extension = System.IO.Path.GetExtension(theFile.FileName);
+        string extension = Path.GetExtension(file.FileName);
 
         // Generate Random name.
-        string name = Guid.NewGuid().ToString().Substring(0, 8) + extension;
+        string name = string.Concat(Guid.NewGuid().ToString().AsSpan(0, 8), extension);
 
         string link = Path.Combine(_storagePath, name);
 
         // Create directory if it dose not exist.
         FileInfo dir = new FileInfo(_storagePath);
-        dir.Directory.Create();
+        dir.Directory!.Create();
 
         string[] videoMimetypes = { "video/mp4", "video/webm", "video/ogg" };
         string[] videoExt = { ".mp4", ".webm", ".ogg" };
@@ -49,9 +54,9 @@ public class UploadController: ControllerBase
             // Copy contents to memory stream.
             Stream stream;
             stream = new MemoryStream();
-            theFile.CopyTo(stream);
+            file.CopyTo(stream);
             stream.Position = 0;
-            String serverPath = link;
+            string serverPath = link;
 
             // Save the file
             using (FileStream writerFileStream = System.IO.File.Create(serverPath))
@@ -68,21 +73,24 @@ public class UploadController: ControllerBase
 
         }
 
-            /*        if (video == null || video.Length == 0)
-                    {
-                        return BadRequest("No file selected");
-                    }
+        return Ok();
 
-                    var videoPath = Path.Combine(_storagePath, video.FileName);
 
-                    if (!Directory.Exists(Path.GetDirectoryName(videoPath)))
-                        Directory.CreateDirectory(Path.GetDirectoryName(videoPath)!);
+        /*        if (video == null || video.Length == 0)
+                {
+                    return BadRequest("No file selected");
+                }
 
-                    using (var stream = new FileStream(videoPath, FileMode.Create))
-                    {
-                        await video.CopyToAsync(stream);
-                    }
+                var videoPath = Path.Combine(_storagePath, video.FileName);
 
-                    return Ok(videoPath);*/
-        }
+                if (!Directory.Exists(Path.GetDirectoryName(videoPath)))
+                    Directory.CreateDirectory(Path.GetDirectoryName(videoPath)!);
+
+                using (var stream = new FileStream(videoPath, FileMode.Create))
+                {
+                    await video.CopyToAsync(stream);
+                }
+
+                return Ok(videoPath);*/
+    }
 }
