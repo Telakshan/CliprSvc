@@ -4,5 +4,5 @@ namespace Clipr.Infrastructure.Contracts.Persistence;
 
 public interface IVideoRepository: IAsyncRepository<Video>
 {
-    Task<IEnumerable<Video>> GetVideos();
+    Task<IEnumerable<Video>> GetVideosByUsername(string userName);
 }

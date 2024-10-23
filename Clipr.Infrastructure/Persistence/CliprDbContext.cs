@@ -26,4 +26,15 @@ public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContex
 
         return base.SaveChangesAsync(cancellationToken);
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.Videos)
+            .WithOne(v => v.User)
+            .HasForeignKey(v => v.UserId)
+            .IsRequired(true);
+
+        base.OnModelCreating(modelBuilder);
+    }
 }

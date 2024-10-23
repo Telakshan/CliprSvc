@@ -11,10 +11,9 @@ public class VideoRepository : RepositoryBase<Video>, IVideoRepository
     {
     }
 
-    public async Task<IEnumerable<Video>> GetVideos()
+    public async Task<IEnumerable<Video>> GetVideosByUsername(string userName)
     {
-        var videoList = await _dbContext.Videos.ToListAsync();
-
-        return videoList;
+        return await _dbContext.Videos
+            .Where(o => o.User.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToListAsync();
     }
 }

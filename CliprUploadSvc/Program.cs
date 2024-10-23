@@ -1,5 +1,5 @@
-using Clipr.API.Registration;
 using Clipr.Application.Behaviors;
+using Clipr.Application.Registration;
 using MediatR;
 using System.Reflection;
 
@@ -9,9 +9,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+//Register services
+builder.Services.AddApplicationServices();
+
+/*builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
-builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));*/
 
 var app = builder.Build();
 
@@ -20,8 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseErrorHandlerMiddleware();
 
 app.UseHttpsRedirection();
 

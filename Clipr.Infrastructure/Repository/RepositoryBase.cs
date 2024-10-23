@@ -2,6 +2,7 @@
 using Clipr.Infrastructure.Contracts.Persistence;
 using Clipr.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Clipr.Infrastructure.Repository;
 
@@ -31,6 +32,11 @@ public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
         var entity = await _dbContext.Set<T>().FindAsync(id);
 
         return entity ?? throw new Exception("No video found!");
+    }
+
+    public async Task<IReadOnlyList<T>> GetAllAsync()
+    {
+        return await _dbContext.Set<T>().ToListAsync();
     }
 
     public async Task<IReadOnlyList<T>> ListAllAsync()
