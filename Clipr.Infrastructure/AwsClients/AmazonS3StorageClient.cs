@@ -29,7 +29,6 @@ namespace Clipr.Infrastructure.AwsClients
 
             if (string.IsNullOrEmpty(_s3Config.AwsAccessKeyId) || string.IsNullOrEmpty(_s3Config.AwsSecretAccessKey))
             {
-                // Use EC2 instance profile or other role-based credentials if Key/Secret are not provided
                  _s3Client = new AmazonS3Client(RegionEndpoint.GetBySystemName(_s3Config.Region));
             }
             else
@@ -52,18 +51,14 @@ namespace Clipr.Infrastructure.AwsClients
                 Key = key,
                 InputStream = inputStream,
                 ContentType = contentType,
-                CannedACL = S3CannedACL.PublicRead // Or your desired ACL
+                CannedACL = S3CannedACL.PublicRead
             };
 
             PutObjectResponse response = await _s3Client.PutObjectAsync(putRequest);
 
             if (response.HttpStatusCode == System.Net.HttpStatusCode.OK)
             {
-                // Construct the public URL. This might vary based on bucket settings and region.
-                // For virtual-hosted style URLs:
                 return $"https://{_s3Config.BucketName}.s3.{_s3Config.Region}.amazonaws.com/{key}";
-                // For path-style URLs (less common for new buckets):
-                // return $"https://s3.{_s3Config.Region}.amazonaws.com/{_s3Config.BucketName}/{key}";
             }
             else
             {

@@ -11,7 +11,6 @@ public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, Unit>
     private readonly IVideoUploadService _videoUploadService;
     private readonly ILogger<UploadVideoHandler> _logger;
 
-    //Delete
     string _storagePath = string.Empty;
     string appDirectory = string.Empty;
 

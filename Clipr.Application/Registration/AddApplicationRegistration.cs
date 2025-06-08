@@ -10,7 +10,7 @@ public static class AddApplicationRegistration
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
-        //Add services here
+        //Add services
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
