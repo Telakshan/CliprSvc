@@ -1,15 +1,10 @@
-﻿using MediatR;
+using MediatR;
+using Microsoft.AspNetCore.Http; // Added
 
 namespace Clipr.Application.Features.Commands.UploadVideo;
 
-public class UploadVideoCommand: IRequest<Unit>
+// Changed IRequest<Unit> to IRequest<string>
+public class UploadVideoCommand : IRequest<string>
 {
-    public Stream VideoStream { get; set; } = null!;
-    public string VideoName { get; set; } = null!;
-    public string VideoDescription { get; set; } = null!;
-    public string VideoType { get; set; } = string.Empty;
-    public string VideoUrl { get; set; } = string.Empty;
-    public string VideoThumbnailUrl { get; set; } = string.Empty;
-    public string VideoTags { get; set; } = string.Empty;
-    public string VideoCategory { get; set; } = string.Empty;
+    public IFormFile VideoFile { get; set; } = null!; // Replaced properties
 }

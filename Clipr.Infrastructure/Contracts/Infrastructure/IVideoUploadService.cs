@@ -1,6 +1,10 @@
-﻿namespace Clipr.Infrastructure.Contracts.Infrastructure;
+﻿using Microsoft.AspNetCore.Http;
+using System.Threading.Tasks;
+
+namespace Clipr.Infrastructure.Contracts.Infrastructure;
 
 public interface IVideoUploadService
 {
-    public Task<string> UploadVideoAsync(string videoPath);
+    // Modify this line
+    Task<string> UploadVideoAsync(IFormFile videoFile);
 }
