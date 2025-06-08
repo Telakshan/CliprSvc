@@ -1,4 +1,6 @@
 ﻿using Clipr.Application.Behaviors;
+using Clipr.Infrastructure.Contracts.Infrastructure;
+using Clipr.Infrastructure.Upload;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +13,6 @@ public static class AddApplicationRegistration
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         //Add services
-
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));

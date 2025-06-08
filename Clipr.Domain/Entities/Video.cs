@@ -18,7 +18,7 @@ public class Video: EntityBase
     public int DislikesCount { get; set; }
     public DateTime UploadedAt { get; set; }
     public DateTime PublishedAt { get; set; }
-    public VideoStatus Status { get; set; } = string.Empty;
+    public VideoStatus Status { get; set; }
     public virtual User User { get; set; } = new();
 }
 

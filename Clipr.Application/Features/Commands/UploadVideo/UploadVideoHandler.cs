@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Clipr.Application.Features.Commands.UploadVideo;
 
-public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, Unit>
+public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, string>
 {
     private readonly IVideoRepository _videoRepository;
     private readonly IVideoUploadService _videoUploadService;
@@ -26,18 +26,19 @@ public class UploadVideoHandler: IRequestHandler<UploadVideoCommand, Unit>
 
     }
 
-    public async Task<Unit> Handle(UploadVideoCommand request, CancellationToken cancellationToken)
+    public async Task<string> Handle(UploadVideoCommand request, CancellationToken cancellationToken)
     {
-        var videoPath = Path.Combine(_storagePath, request.VideoName);
+        var videoPath = Path.Combine(_storagePath, request.VideoFile.FileName);
 
         if (!Directory.Exists(Path.GetDirectoryName(videoPath)))
             Directory.CreateDirectory(Path.GetDirectoryName(videoPath)!);
 
         using (var stream = new FileStream(videoPath, FileMode.Create))
         {
-            await request.VideoStream.CopyToAsync(stream, cancellationToken);
+            var videoStream = request.VideoFile.OpenReadStream();
+            await videoStream.CopyToAsync(stream, cancellationToken);
         }
 
-        return Unit.Value;
+        return videoPath;
     }
 }

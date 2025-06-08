@@ -1,7 +1,8 @@
 using Clipr.Application.Behaviors;
 using Clipr.Application.Registration;
+using Clipr.Infrastructure;
+using Clipr.Infrastructure.AWSClients;
 using MediatR;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +10,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services
+    .AddOptions<S3Config>()
+    .BindConfiguration(nameof(S3Config))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+
 //Register services
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 

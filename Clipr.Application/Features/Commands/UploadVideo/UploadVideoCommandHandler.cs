@@ -1,8 +1,5 @@
 using Clipr.Infrastructure.Contracts.Infrastructure;
 using MediatR;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Clipr.Application.Features.Commands.UploadVideo
 {

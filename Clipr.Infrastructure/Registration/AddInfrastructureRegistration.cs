@@ -1,12 +1,11 @@
 ﻿using Clipr.Infrastructure.AwsClients;
+using Clipr.Infrastructure.AWSClients;
 using Clipr.Infrastructure.Contracts.Infrastructure;
-using Clipr.Infrastructure.Upload;
-using Clipr.Infrastructure.Mail;
 using Clipr.Infrastructure.Persistence;
+using Clipr.Infrastructure.Upload;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Clipr.Infrastructure;
 
@@ -17,9 +16,18 @@ public static class AddInfrastructureRegistration
         services.AddDbContext<CliprDbContext>(options =>
             options.UseLazyLoadingProxies()
             .UseSqlServer(configuration.GetConnectionString("CliprConnectionString")!)
-            .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }));
+            .LogTo(Console.WriteLine, [DbLoggerCategory.Database.Command.Name]));
 
-        services.Configure<S3ConfigOptions>(configuration.GetSection(S3ConfigOptions.S3Config));
+        var s3Config = () => configuration.GetSection(nameof(S3Config)).Value;
+
+        /*        services
+                    .AddOptions<S3Config>()
+                    .BindConfiguration(nameof(S3Config))
+                    .ValidateDataAnnotations()
+                    .ValidateDataAnnotations()
+                    .ValidateOnStart();*/
+
+        services.Configure<S3Config>(c => configuration.GetSection(nameof(S3Config)));
 
         services.AddSingleton<AmazonS3StorageClient>();
 

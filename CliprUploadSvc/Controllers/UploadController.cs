@@ -1,9 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using Clipr.Application.Features.Commands.UploadVideo;
 using MediatR;
-using System;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CliprUploadSvc.Controllers;
 

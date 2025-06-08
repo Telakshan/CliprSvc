@@ -1,11 +1,6 @@
+using Clipr.Infrastructure.AwsClients;
 using Clipr.Infrastructure.Contracts.Infrastructure;
-using Clipr.Infrastructure.AwsClients; 
-using Microsoft.AspNetCore.Http;      
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using System.Text; 
+using Microsoft.AspNetCore.Http;
 
 namespace Clipr.Infrastructure.Upload
 {
@@ -26,9 +21,23 @@ namespace Clipr.Infrastructure.Upload
             }
 
             var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(videoFile.FileName)}";
+            
+            //ACTUAL CODE
+            /*
+            using var stream = videoFile.OpenReadStream();
+
+            return await _s3Client.UploadFileAsync(stream, uniqueFileName, videoFile.ContentType);*/
+
+            //TEST CODE BEGINS
+            var folderName = "test-uploads";
+            var filePath = Path.Combine(folderName, uniqueFileName);
+            Directory.CreateDirectory(folderName);
 
             using var stream = videoFile.OpenReadStream();
-            return await _s3Client.UploadFileAsync(stream, uniqueFileName, videoFile.ContentType);
+            using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+            await stream.CopyToAsync(fileStream);
+            //TEST CODE ENDS
+            return filePath;
         }
     }
 }
