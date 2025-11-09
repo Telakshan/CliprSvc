@@ -18,8 +18,6 @@ public static class AddInfrastructureRegistration
             .UseSqlServer(configuration.GetConnectionString("CliprConnectionString")!)
             .LogTo(Console.WriteLine, [DbLoggerCategory.Database.Command.Name]));
 
-        var s3Config = () => configuration.GetSection(nameof(S3Config)).Value;
-
         /*        services
                     .AddOptions<S3Config>()
                     .BindConfiguration(nameof(S3Config))

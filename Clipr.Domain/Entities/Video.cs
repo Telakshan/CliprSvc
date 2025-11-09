@@ -13,7 +13,7 @@ public class Video: EntityBase
     public string VideoThumbnailUrl { get; set; } = string.Empty;
     public string VideoTags { get; set; } = string.Empty;
     public VideoType VideoCategory { get; set; }
-    public int ViewCount { get; set; }
+    public int ViewCount { get; set; } 
     public int LikesCount { get; set; }
     public int DislikesCount { get; set; }
     public DateTime UploadedAt { get; set; }

@@ -6,8 +6,6 @@ namespace Clipr.Infrastructure.Persistence;
 
 public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContext(options)
 {
-    public DbSet<Video> Videos { get; set; }
-
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         foreach (var entry in ChangeTracker.Entries<EntityBase>())
@@ -26,6 +24,8 @@ public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContex
 
         return base.SaveChangesAsync(cancellationToken);
     }
+    public DbSet<Video> Videos => Set<Video>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

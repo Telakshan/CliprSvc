@@ -1,0 +1,55 @@
+version: "3.8"
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: clipr_sql
+    environment:
+      SA_PASSWORD: "Admin12345678"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1434:1433"
+    volumes:
+      - dbdata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P \"$SA_PASSWORD\" -Q \"SELECT 1\" || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  minio:
+    image: minio/minio:latest
+    container_name: clipr_minio
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin123"
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9000/minio/health/ready || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+  minio-init:
+    image: minio/mc
+    container_name: clipr_minio_init
+    depends_on:
+      - minio
+    entrypoint: /bin/sh -c
+    command: >
+      "for i in 1 2 3 4 5 6 7 8 9 10; do
+         mc alias set local http://minio:9000 \"$MINIO_ROOT_USER\" \"$MINIO_ROOT_PASSWORD\" && break || sleep 2;
+       done &&
+       mc --insecure mb --ignore-existing local/clipr-bucket || true"
+    environment:
+      MINIO_ROOT_USER: "minioadmin"
+      MINIO_ROOT_PASSWORD: "minioadmin123"
+    restart: "no"
+
+volumes:
+  dbdata:
+  minio_data:
