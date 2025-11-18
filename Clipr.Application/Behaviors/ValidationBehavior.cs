@@ -5,8 +5,8 @@ namespace Clipr.Application.Behaviors;
 
 public class ValidationBehavior<TRequest, TResponse>: IPipelineBehavior<TRequest, TResponse>
 {
-    private readonly IEnumerable<IValidator<IRequest>> _validators;
-    public ValidationBehavior(IEnumerable<IValidator<IRequest>> validators)
+    private readonly IEnumerable<IValidator<TRequest>> _validators;
+    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators)
     {
         _validators = validators;
     }
