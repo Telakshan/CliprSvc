@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UserService\**" />
+    <EmbeddedResource Remove="UserService\**" />
+    <None Remove="UserService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AWSSDK.S3" Version="4.0.11.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.10" />
@@ -19,10 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clipr.Domain\Clipr.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UserService\" />
   </ItemGroup>
 
 </Project>

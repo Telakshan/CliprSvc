@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Clipr.Application.Features.Commands.UploadVideo;
 using Clipr.Application.Features.Queries.GetUser;
 using Clipr.Domain.Entities;
 
@@ -9,8 +8,7 @@ public class MappingProfile: Profile
 {
     public MappingProfile()
     {
-        CreateMap<User, UserDto>();
-            /*.ForMember(x => x.Email, opt => opt.MapFrom(src => src.Email));*/
+        CreateMap<User, UserDto>().ReverseMap();
     }
 }
 

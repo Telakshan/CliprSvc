@@ -14,6 +14,6 @@ public class UserController : BaseApiController
             return BadRequest(ModelState);
         }
 
-        return Ok(new GetUserListQuery());
+        return Ok(await Mediator.Send(new GetUserListQuery()));
     }
 }
