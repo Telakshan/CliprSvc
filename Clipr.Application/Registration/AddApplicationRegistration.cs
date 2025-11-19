@@ -1,5 +1,4 @@
 ﻿using Clipr.Application.Behaviors;
-
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +15,7 @@ public static class AddApplicationRegistration
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehavior<,>));
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         return services;
     }

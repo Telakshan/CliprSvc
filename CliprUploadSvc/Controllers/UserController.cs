@@ -1,13 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
+using Clipr.Application.Features.Queries.GetUser;
 
 namespace Clipr.API.Controllers;
 
 public class UserController : BaseApiController
 {
-    [HttpGet]
-    public IActionResult GetUser()
+    [HttpGet("/all")]
+    public async Task<IActionResult> GetUsers()
     {
-        return Ok("User endpoint is working.");
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        return Ok(new GetUserListQuery());
     }
 }

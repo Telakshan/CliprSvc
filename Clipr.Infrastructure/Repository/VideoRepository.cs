@@ -14,6 +14,6 @@ public class VideoRepository : RepositoryBase<Video>, IVideoRepository
     public async Task<IEnumerable<Video>> GetVideosByUsername(string userName)
     {
         return await _dbContext.Videos
-            .Where(o => o.User.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToListAsync();
+            .Where(o => o.User.Username.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToListAsync();
     }
 } 

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Clipr.Domain\Clipr.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UserService\" />
+  </ItemGroup>
+
 </Project>
