@@ -4,7 +4,7 @@ using Clipr.Infrastructure.Persistence;
 
 namespace Clipr.Infrastructure.Repository;
 
-public class UserRepository : RepositoryBase<User>, IUserRepository
+public class UserRepository : RepositoryBase<User, Guid>, IUserRepository
 {
     public UserRepository(CliprDbContext dbContext) : base(dbContext)
     {

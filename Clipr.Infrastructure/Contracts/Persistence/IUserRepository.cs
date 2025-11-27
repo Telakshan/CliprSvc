@@ -2,6 +2,6 @@
 
 namespace Clipr.Infrastructure.Contracts.Persistence;
 
-public interface IUserRepository: IAsyncRepository<User>
+public interface IUserRepository: IAsyncRepository<User, Guid>
 {
 }

@@ -20,7 +20,7 @@ public static class AddApplicationRegistration
         // Register AutoMapper using the extension method
         services.AddAutoMapper(cfg =>
         {
-            cfg.AddProfile<MappingProfile>();
+            cfg.AddProfile<MappingProfile>(); 
         }, Assembly.GetExecutingAssembly());
 
         return services;

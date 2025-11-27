@@ -19,6 +19,7 @@ builder.Services
 //Register services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddHealthChecks();
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
@@ -29,6 +30,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHealthChecks("/health"); 
+
+//TODO: Comment out database seeding
+// app.MigrateDatabase<CliprDbContext>((context, services) =>
+// {
+//  var loggger = services.GetRequiredService<ILogger<CliprDbContext>>() ?? throw ArgumentNullException(nameof(ILogger<CliprDbContext>));
+//  loggger.LogInformation("Migrating database");
+
+//  context.Database.Migrate();
+// });
+
 
 app.UseHttpsRedirection();
 

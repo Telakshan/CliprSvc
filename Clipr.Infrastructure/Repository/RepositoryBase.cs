@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Infrastructure.Repository;
 
-public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
+public class RepositoryBase<T, TId> : IAsyncRepository<T, TId> where T : EntityBase<TId>
 {
     protected readonly CliprDbContext _dbContext;   
 
@@ -26,7 +26,7 @@ public class RepositoryBase<T> : IAsyncRepository<T> where T : EntityBase
         await _dbContext.SaveChangesAsync();
     }
 
-    public async Task<T> GetByIdAsync(int id)
+    public async Task<T> GetByIdAsync(TId id)
     {
         var entity = await _dbContext.Set<T>().FindAsync(id);
 

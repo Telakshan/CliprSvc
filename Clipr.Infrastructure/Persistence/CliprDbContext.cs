@@ -8,7 +8,7 @@ public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContex
 {
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        foreach (var entry in ChangeTracker.Entries<EntityBase>())
+        foreach (var entry in ChangeTracker.Entries<IAuditableEntity>())
         {
             switch (entry.State)
             {
@@ -34,6 +34,11 @@ public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContex
             .WithOne(v => v.User)
             .HasForeignKey(v => v.UserId)
             .IsRequired(true);
+
+        modelBuilder.Entity<User>()
+            .HasOne(u => u.UserProfile)
+            .WithOne(up => up.User)
+            .HasForeignKey<UserProfile>(up => up.UserId);
 
         base.OnModelCreating(modelBuilder);
     }

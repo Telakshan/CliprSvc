@@ -2,7 +2,7 @@
 
 namespace Clipr.Infrastructure.Contracts.Persistence;
 
-public interface IVideoRepository: IAsyncRepository<Video>
+public interface IVideoRepository: IAsyncRepository<Video, int>
 {
     Task<IEnumerable<Video>> GetVideosByUsername(string userName);
 }
