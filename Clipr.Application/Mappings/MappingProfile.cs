@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Clipr.Application.Features.Queries.GetUser;
-using Clipr.Domain.Entities;
+using Clipr.Modules.Upload.Domain.Entities;
 
 namespace Clipr.Application.Mappings;
 

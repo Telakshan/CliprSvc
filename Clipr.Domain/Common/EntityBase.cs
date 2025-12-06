@@ -1,4 +1,4 @@
-﻿namespace Clipr.Domain.Common;
+﻿namespace Clipr.Modules.Upload.Domain.Common;
 
 public abstract class EntityBase<TId> : IAuditableEntity
 {

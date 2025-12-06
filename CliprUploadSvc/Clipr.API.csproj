@@ -25,7 +25,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clipr.Application\Clipr.Application.csproj" />
+    <ProjectReference Include="..\Clipr.Application\Clipr.Modules.Upload.Application.csproj" />
     <ProjectReference Include="..\Clipr.Infrastructure\Clipr.Infrastructure.csproj" />
+    <ProjectReference Include="..\Clipr.Modules.Upload.Presentation\Clipr.Modules.Upload.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

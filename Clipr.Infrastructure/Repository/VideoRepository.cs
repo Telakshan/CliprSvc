@@ -1,6 +1,6 @@
-﻿using Clipr.Domain.Entities;
-using Clipr.Infrastructure.Contracts.Persistence;
+﻿using Clipr.Infrastructure.Contracts.Persistence;
 using Clipr.Infrastructure.Persistence;
+using Clipr.Modules.Upload.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Infrastructure.Repository;

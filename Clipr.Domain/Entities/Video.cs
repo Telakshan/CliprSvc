@@ -1,6 +1,6 @@
-﻿using Clipr.Domain.Common;
+﻿using Clipr.Modules.Upload.Domain.Common;
 
-namespace Clipr.Domain.Entities;
+namespace Clipr.Modules.Upload.Domain.Entities;
 
 public class Video: EntityBase<int>
 {
