@@ -1,7 +1,7 @@
 ﻿using Clipr.Modules.Upload.Domain.Abstractions;
 using Microsoft.AspNetCore.Http;
 
-namespace Clipr.Modules.Upload.Presentation.ApiResult;
+namespace Clipr.Modules.Upload.Presentation.ApiResults;
 
 public static class ApiResults
 {

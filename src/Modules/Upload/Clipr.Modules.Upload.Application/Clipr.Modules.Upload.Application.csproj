@@ -16,13 +16,10 @@
     <PackageReference Include="FluentValidation" Version="12.1.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.0" />
     <PackageReference Include="MediatR" Version="13.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Clipr.Modules.Upload.Domain\Clipr.Modules.Upload.Domain.csproj" />
-    <ProjectReference Include="..\Clipr.Modules.Upload.Infrastructure\Clipr.Modules.Upload.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

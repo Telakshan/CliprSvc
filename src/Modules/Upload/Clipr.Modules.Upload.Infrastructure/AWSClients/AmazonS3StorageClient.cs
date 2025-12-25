@@ -2,11 +2,7 @@ using Amazon;
 using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
-using Clipr.Modules.Upload.Domain.Abstractions;
-using Clipr.Modules.Upload.Presentation.ApiResult;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using ErrorType = Clipr.Modules.Upload.Domain.Abstractions.ErrorType;
 
 namespace Clipr.Modules.Upload.Infrastructure.AWSClients;
 
