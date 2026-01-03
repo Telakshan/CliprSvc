@@ -8,5 +8,7 @@ public class UploadVideoCommandValidator : AbstractValidator<UploadVideoCommand>
     {
         RuleFor(p => p.VideoFile)
             .NotEmpty().WithMessage("Video file to upload cannot be empty!");
+        RuleFor(p => p.VideoFile.Length)
+            .GreaterThan(0).WithMessage("Video file size must be greater than zero!");
     }
 }

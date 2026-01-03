@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Clipr.Modules.Upload.Domain\Clipr.Modules.Upload.Domain.csproj" />
     <ProjectReference Include="..\Clipr.Modules.Upload.Presentation\Clipr.Modules.Upload.Presentation.csproj" />
   </ItemGroup>
 
