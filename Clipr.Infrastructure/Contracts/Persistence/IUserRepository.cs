@@ -1,4 +1,4 @@
-﻿using Clipr.Domain.Entities;
+﻿using Clipr.Modules.Upload.Domain.Entities;
 
 namespace Clipr.Infrastructure.Contracts.Persistence;
 

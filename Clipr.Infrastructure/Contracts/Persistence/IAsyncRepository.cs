@@ -1,4 +1,4 @@
-﻿using Clipr.Domain.Common;
+﻿using Clipr.Modules.Upload.Domain.Common;
 
 namespace Clipr.Infrastructure.Contracts.Persistence;
 
