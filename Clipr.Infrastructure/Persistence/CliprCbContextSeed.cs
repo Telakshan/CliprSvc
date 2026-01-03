@@ -1,0 +1,88 @@
+// using Bogus;
+// using Clipr.Infrastructure.Persistence;
+
+// public class CliprCbContextSeed {
+
+// public static void SeedAsync(CliprDbContext context) {
+//     if(!context.Users.Any()) {
+//         var testUsers = GetPreconfiguredUsers();
+//         context.Users.AddRange(testUsers);
+//         context.SaveChanges();
+//     }
+
+//     if(!context.UserProfile.Any()) {
+//         var testUserProfiles = GetPreconfiguredUserProfiles();
+//         context.UserProfiles.AddRange(testUserProfiles);
+//         context.SaveChanges();
+//     }
+
+//     if(!context.Videos.Any()) {
+//         var testVideos = GetPreconfiguredVideos();
+//         context.Videos.AddRange(testVideos);
+//         context.SaveChanges();
+//     }
+
+//     if(!context.PlayLists.Any()) {
+//         var testPlayLists = GetPreconfiguredPlayLists();
+//         context.PlayLists.AddRange(testPlayLists);
+//         context.SaveChanges();
+//     }
+// }
+
+// private static List<User> GetPreconfiguredUsers() 
+// {
+//     return new Faker<User>()
+//     .RuleFor(u => u.Email, f => f.Internet.Email())
+//     .RuleFor(u => u.PasswordHash, f => f.Internet.Password())
+//     .RuleFor(u => u.Username, f => f.Internet.UserName())
+//     .Generate(10);
+// }
+
+// private static List<UserProfile> GetPreconfiguredUserProfiles() 
+// {
+//     return new Faker<UserProfile>()
+//     .RuleFor(u => u.DisplayName, f => f.Name.FirstName())
+//     .RuleFor(u => u.Bio, f => f.Lorem.Sentence())
+//     .RuleFor(u => u.ProfilePictureUrl, f => f.Internet.Avatar())
+//     .Generate(10);
+// }
+
+// private static List<Video> GetPreconfiguredVideos() 
+// {
+//     return new Faker<Video>()
+//     .RuleFor(v => v.VideoName, f => f.Lorem.Sentence())
+//     .RuleFor(v => v.VideoDescription, f => f.Lorem.Sentence())
+//     .RuleFor(v => v.VideoType, f => f.PickRandom<VideoType>())
+//     .RuleFor(v => v.VideoUrl, f => f.Internet.Url())
+//     .RuleFor(v => v.VideoThumbnailUrl, f => f.Internet.Url())
+//     .RuleFor(v => v.VideoTags, f => f.Lorem.Sentence())
+//     .RuleFor(v => v.VideoCategory, f => f.PickRandom<VideoType>())
+//     .RuleFor(v => v.ViewCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(v => v.LikesCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(v => v.DislikesCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(v => v.UploadedAt, f => f.Date.Past())
+//     .RuleFor(v => v.PublishedAt, f => f.Date.Past())
+//     .RuleFor(v => v.Status, f => f.PickRandom<VideoStatus>())
+//     .Generate(10);
+// }   
+
+// private static List<PlayList> GetPreconfiguredPlayLists() 
+// {
+//     return new Faker<PlayList>()
+//     .RuleFor(p => p.PlayListName, f => f.Lorem.Sentence())
+//     .RuleFor(p => p.PlayListDescription, f => f.Lorem.Sentence())
+//     .RuleFor(p => p.PlayListType, f => f.PickRandom<PlayListType>())
+//     .RuleFor(p => p.PlayListUrl, f => f.Internet.Url())
+//     .RuleFor(p => p.PlayListThumbnailUrl, f => f.Internet.Url())
+//     .RuleFor(p => p.PlayListTags, f => f.Lorem.Sentence())
+//     .RuleFor(p => p.PlayListCategory, f => f.PickRandom<PlayListType>())
+//     .RuleFor(p => p.ViewCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(p => p.LikesCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(p => p.DislikesCount, f => f.Random.Int(0, 1000))
+//     .RuleFor(p => p.UploadedAt, f => f.Date.Past())
+//     .RuleFor(p => p.PublishedAt, f => f.Date.Past())
+//     .RuleFor(p => p.Status, f => f.PickRandom<PlayListStatus>())
+//     .Generate(10);
+// }
+
+// }

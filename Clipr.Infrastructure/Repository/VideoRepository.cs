@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Infrastructure.Repository;
 
-public class VideoRepository : RepositoryBase<Video>, IVideoRepository
+public class VideoRepository : RepositoryBase<Video, int>, IVideoRepository
 {
     public VideoRepository(CliprDbContext dbContext) : base(dbContext)
     {

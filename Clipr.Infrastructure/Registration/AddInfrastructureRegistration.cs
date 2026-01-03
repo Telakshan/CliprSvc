@@ -34,7 +34,7 @@ public static class AddInfrastructureRegistration
 
         services.AddScoped<IVideoUploadService, VideoUploadService>();
 
-        services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
+        services.AddScoped(typeof(IAsyncRepository<,>), typeof(RepositoryBase<,>));
         services.AddScoped<IVideoRepository, VideoRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.Configure<EmailSettings>(c => configuration.GetSection("EmailSettings"));

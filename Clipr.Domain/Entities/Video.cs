@@ -2,7 +2,7 @@
 
 namespace Clipr.Domain.Entities;
 
-public class Video: EntityBase
+public class Video: EntityBase<int>
 {
     public int VideoId { get; set; }
     public Guid UserId { get; set; }
