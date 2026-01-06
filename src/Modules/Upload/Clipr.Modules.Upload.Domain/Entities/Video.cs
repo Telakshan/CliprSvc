@@ -1,10 +1,9 @@
-using Clipr.Modules.Upload.Domain.Common;
+using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Upload.Domain.Entities;
 
-public class Video: EntityBase<int>
+public class Video: EntityBase<Guid>
 {
-    public int VideoId { get; set; }
     public Guid UserId { get; set; }
     public string VideoName { get; set; } = null!;
     public string VideoDescription { get; set; } = null!;
@@ -18,7 +17,6 @@ public class Video: EntityBase<int>
     public DateTime UploadedAt { get; set; }
     public DateTime PublishedAt { get; set; }
     public VideoStatus Status { get; set; }
-    public virtual User User { get; set; } = new();
 }
 
 public enum VideoType

@@ -1,6 +1,4 @@
-﻿using Clipr.Modules.Upload.Domain.Common;
-
-namespace Clipr.Modules.Upload.Domain.Abstractions;
+﻿namespace Clipr.Common.Domain.Abstractions;
 
 public interface IAsyncRepository<T, TId> where T : EntityBase<TId>
 {

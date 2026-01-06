@@ -1,4 +1,4 @@
-namespace Clipr.Modules.Upload.Domain.Common;
+namespace Clipr.Common.Domain.Abstractions;
 
 public interface IAuditableEntity
 {

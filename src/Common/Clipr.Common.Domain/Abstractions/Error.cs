@@ -1,4 +1,4 @@
-﻿namespace Clipr.Modules.Upload.Domain.Abstractions;
+﻿namespace Clipr.Common.Domain.Abstractions;
 public record Error
 {
     public static readonly Error None = new(string.Empty, string.Empty, ErrorType.Failure);

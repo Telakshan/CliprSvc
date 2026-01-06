@@ -7,12 +7,23 @@
   <Folder Name="/src/API/">
     <Project Path="src/API/Clipr.Api/Clipr.Api.csproj" />
   </Folder>
+  <Folder Name="/src/Common/">
+    <Project Path="src/Common/Clipr.Common.Domain/Clipr.Common.Domain.csproj" />
+    <Project Path="src\Common\Clipr.Common.Application\Clipr.Common.Application.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Interaction/">
+    <Project Path="src/Modules/Interaction/Clipr.Modules.Interaction.Domain/Clipr.Modules.Interaction.Domain.csproj" />
+  </Folder>
   <Folder Name="/src/Modules/Upload/">
     <Project Path="src/Modules/Upload/Clipr.Modules.Upload.Application/Clipr.Modules.Upload.Application.csproj" />
     <Project Path="src/Modules/Upload/Clipr.Modules.Upload.Domain/Clipr.Modules.Upload.Domain.csproj" />
     <Project Path="src/Modules/Upload/Clipr.Modules.Upload.Infrastructure/Clipr.Modules.Upload.Infrastructure.csproj" />
     <Project Path="src/Modules/Upload/Clipr.Modules.Upload.Presentation/Clipr.Modules.Upload.Presentation.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/User/">
+    <Project Path="src/Modules/User/Clipr.Modules.User.Infrastructure/Clipr.Modules.User.Infrastructure.csproj" />
+    <Project Path="src\Modules\User\Clipr.Modules.User.Domain\Clipr.Modules.User.Domain.csproj" />
   </Folder>
   <Project Path="docker-compose.dcproj">
     <Build />

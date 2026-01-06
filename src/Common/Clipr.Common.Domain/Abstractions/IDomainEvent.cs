@@ -1,4 +1,4 @@
-﻿namespace Clipr.Modules.Upload.Domain.Abstractions;
+﻿namespace Clipr.Common.Domain.Abstractions;
 public interface IDomainEvent
 {
     Guid Id { get; }
