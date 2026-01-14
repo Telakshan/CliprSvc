@@ -1,5 +1,5 @@
-﻿using Clipr.Modules.Upload.Domain.Abstractions;
-using MediatR;
+﻿using MediatR;
+using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Upload.Application.Abstraction.Messaging;
 

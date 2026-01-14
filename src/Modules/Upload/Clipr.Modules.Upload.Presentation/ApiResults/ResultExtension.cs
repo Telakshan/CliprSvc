@@ -1,4 +1,4 @@
-﻿using Clipr.Modules.Upload.Domain.Abstractions;
+﻿using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Upload.Presentation.ApiResult;
 

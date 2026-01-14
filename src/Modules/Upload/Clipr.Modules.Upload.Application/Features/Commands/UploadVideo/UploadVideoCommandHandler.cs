@@ -1,5 +1,5 @@
+using Clipr.Common.Domain.Abstractions;
 using Clipr.Modules.Upload.Application.Abstraction.Messaging;
-using Clipr.Modules.Upload.Domain.Abstractions;
 using Clipr.Modules.Upload.Domain.Entities;
 using Clipr.Modules.Upload.Domain.Upload;
 

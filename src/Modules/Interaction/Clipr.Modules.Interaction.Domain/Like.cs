@@ -1,4 +1,4 @@
-using Clipr.Modules.Upload.Domain.Common;
+using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Interaction.Domain;
 

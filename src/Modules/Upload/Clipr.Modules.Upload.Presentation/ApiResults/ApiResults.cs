@@ -1,4 +1,4 @@
-﻿using Clipr.Modules.Upload.Domain.Abstractions;
+﻿using Clipr.Common.Domain.Abstractions;
 using Microsoft.AspNetCore.Http;
 
 namespace Clipr.Modules.Upload.Presentation.ApiResults;

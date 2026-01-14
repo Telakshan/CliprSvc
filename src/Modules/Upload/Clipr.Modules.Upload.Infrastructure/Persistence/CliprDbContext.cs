@@ -1,4 +1,4 @@
-﻿using Clipr.Modules.Upload.Domain.Common;
+﻿using Clipr.Common.Domain.Abstractions;
 using Clipr.Modules.Upload.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -26,20 +26,11 @@ public class CliprDbContext(DbContextOptions<CliprDbContext> options) : DbContex
         return base.SaveChangesAsync(cancellationToken);
     }
     public DbSet<Video> Videos => Set<Video>();
-    public DbSet<User> Users => Set<User>();
+    public DbSet<User.Domain.Entities.User> Users => Set<User.Domain.Entities.User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<User>()
-            .HasMany(u => u.Videos)
-            .WithOne(v => v.User)
-            .HasForeignKey(v => v.UserId)
-            .IsRequired(true);
-
-        modelBuilder.Entity<User>()
-            .HasOne(u => u.UserProfile)
-            .WithOne(up => up.User)
-            .HasForeignKey<UserProfile>(up => up.UserId);
+        modelBuilder.Entity<User.Domain.Entities.User>();
 
         base.OnModelCreating(modelBuilder);
     }

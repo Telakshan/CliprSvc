@@ -5,15 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Modules.Upload.Infrastructure.Repository;
 
-public class VideoRepository : RepositoryBase<Video, int>, IVideoRepository
+public class VideoRepository : RepositoryBase<Video, Guid>, IVideoRepository
 {
     public VideoRepository(CliprDbContext dbContext) : base(dbContext)
     {
     }
 
-    public async Task<IEnumerable<Video>> GetVideosByUsername(string userName)
+    public Task<IEnumerable<Video>> GetVideosByUsername(string userName)
     {
-        return await _dbContext.Videos
-            .Where(o => o.User.Username.Equals(userName, StringComparison.OrdinalIgnoreCase)).ToListAsync().ConfigureAwait(false);
+        throw new NotImplementedException();
     }
 } 

@@ -12,6 +12,8 @@ public class EmailService : IEmailService
     }
     public Task<bool> SendEmail(Email email)
     {
-        throw new NotImplementedException();
+        Console.WriteLine(_options.Value);
+        
+        return Task.FromResult(true);
     }
 }

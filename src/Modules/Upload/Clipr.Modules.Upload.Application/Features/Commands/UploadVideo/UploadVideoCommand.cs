@@ -3,7 +3,7 @@ using Clipr.Modules.Upload.Domain.Entities;
 
 namespace Clipr.Modules.Upload.Application.Features.Commands.UploadVideo;
 
-public record UploadVideoCommand(
+public record UploadVideoCommand                          (
     string VideoName,
     VideoType VideoCategory,
     VideoStatus VideoStatus,

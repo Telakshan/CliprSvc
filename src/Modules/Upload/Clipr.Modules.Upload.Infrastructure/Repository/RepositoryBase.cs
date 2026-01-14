@@ -1,11 +1,10 @@
-﻿using Clipr.Modules.Upload.Domain.Common;
-using Clipr.Modules.Upload.Infrastructure.Contracts.Persistence;
+﻿using Clipr.Common.Domain.Abstractions;
 using Clipr.Modules.Upload.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Modules.Upload.Infrastructure.Repository;
 
-public class RepositoryBase<T, TId> : IAsyncRepository<T, TId> where T : EntityBase<TId>
+public class RepositoryBase<T, TId> : Contracts.Persistence.IAsyncRepository<T, TId> where T : EntityBase<TId>
 {
     protected readonly CliprDbContext _dbContext;   
 
