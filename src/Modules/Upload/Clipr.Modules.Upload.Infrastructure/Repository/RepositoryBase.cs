@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clipr.Modules.Upload.Infrastructure.Repository;
 
-public class RepositoryBase<T, TId> : Contracts.Persistence.IAsyncRepository<T, TId> where T : EntityBase<TId>
+public class RepositoryBase<T, TId> : Contracts.Persistence.IAsyncRepository<T, TId> where T : Entity<TId>
 {
     protected readonly CliprDbContext _dbContext;   
 

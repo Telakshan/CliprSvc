@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Upload\Clipr.Modules.Upload.Domain\Clipr.Modules.Upload.Domain.csproj" />
+      <ProjectReference Include="..\Clipr.Modules.User.Domain\Clipr.Modules.User.Domain.csproj" />
     </ItemGroup>
 
 </Project>

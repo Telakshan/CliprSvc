@@ -2,7 +2,7 @@ using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Interaction.Domain;
 
-public class Comment: EntityBase<Guid>
+public class Comment: Entity<Guid>
 {
     public Guid CommentId { get; set; }
     public Guid VideoId { get; set; }

@@ -2,7 +2,7 @@ using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Upload.Domain.Entities;
 
-public class UserProfile: EntityBase<Guid>
+public class UserProfile: Entity<Guid>
 {
     public Guid UserId { get; set; }
     public string DisplayName { get; set; } = null!;

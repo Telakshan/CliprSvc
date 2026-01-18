@@ -2,7 +2,7 @@ using Clipr.Common.Domain.Abstractions;
 
 namespace Clipr.Modules.Upload.Domain.Entities;
 
-public class Video: EntityBase<Guid>
+public class Video: Entity<Guid>
 {
     public Guid UserId { get; set; }
     public string VideoName { get; set; } = null!;

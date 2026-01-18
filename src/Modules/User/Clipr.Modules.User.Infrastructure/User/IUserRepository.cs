@@ -1,8 +1,8 @@
-using Clipr.Modules.User
+using Clipr.Common.Domain.Abstractions;
 
-namespace ClassLibrary1.User;
+namespace Clipr.Modules.User.Infrastructure.User;
 
-public class IUserRepository
+public interface IUserRepository: IAsyncRepository<Domain.Entities.User, Guid>
 {
-    Task<> GetAsync(Guid id, CancellationToken cancellationToken = default);
+    Task<Domain.Entities.User> GetAsync(Guid id, CancellationToken cancellationToken = default);
 }

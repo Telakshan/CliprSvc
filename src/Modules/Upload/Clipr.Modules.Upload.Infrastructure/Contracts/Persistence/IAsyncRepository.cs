@@ -2,7 +2,7 @@
 
 namespace Clipr.Modules.Upload.Infrastructure.Contracts.Persistence;
 
-public interface IAsyncRepository<T, TId> where T : EntityBase<TId>
+public interface IAsyncRepository<T, TId> where T : Entity<TId>
 {
     Task<T> GetByIdAsync(TId id);
     Task<IReadOnlyList<T>> GetAllAsync();
